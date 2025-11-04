@@ -1,0 +1,29 @@
+name: Workflow Reusable
+
+on:
+  workflow_call:
+    inputs:
+      ambiente:
+        description: 'Ambiente a desplegar'
+        required: true
+        type: string
+      mensaje:
+        description: 'Mensaje personalizado'
+        required: false
+        type: string
+        default: 'Hola desde el workflow reusable'
+
+jobs:
+  job-reusable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar inputs
+        run: |
+          echo "Ambiente: ${{ inputs.ambiente }}"
+          echo "Mensaje: ${{ inputs.mensaje }}"
+      
+      - name: Proceso dummy
+        run: |
+          echo "Ejecutando proceso en ${{ inputs.ambiente }}..."
+          sleep 2
+          echo "Proceso completado exitosamente"
