@@ -21,6 +21,8 @@ jobs:
         run: |
           echo "Ambiente: ${{ inputs.ambiente }}"
           echo "Mensaje: ${{ inputs.mensaje }}"
+          echo "repositorio path: ${{ github.repository }}"
+          echo "repositorio name: ${{ github.event.repository.name }}"
       
       - name: Proceso dummy
         run: |
